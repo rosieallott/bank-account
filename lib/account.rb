@@ -9,7 +9,7 @@ class Account
   end
 
   def store_transaction(type, amount)
-    details.push({type: type, amount: amount})
+    details.push({type: type, amount: amount, date: Time.now})
   end
 
   private
