@@ -4,11 +4,11 @@ class Account
     @details = []
   end
 
-  def retrieve_details
+  def retrieve_transactions
     details.dup
   end
 
-  def store(type, amount)
+  def store_transaction(type, amount)
     details.push({type: type, amount: amount})
   end
 
