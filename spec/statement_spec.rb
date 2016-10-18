@@ -6,8 +6,15 @@ describe Statement do
 
   describe "#display method" do
     it "should delegate to account to retrieve details" do
-      expect(statement.display).to eq("details")
+      allow(account).to receive(:retrieve_transactions)
+      statement.display
+      expect(account).to receive(:retrieve_transactions)
     end
+
+    # it "should output a statement to the stdout" do
+    #   string = "date || credit || debit || balance"
+    #   expect{statement.display}.to output(string).to_stdout
+    # end
   end
 
 end
