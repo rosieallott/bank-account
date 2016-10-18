@@ -35,7 +35,6 @@ describe Account do
 
   describe "updating balance tests" do
     before do
-      Timecop.freeze
       account.store_transaction(:credit, 100)
     end
 

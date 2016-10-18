@@ -8,10 +8,7 @@ class Statement
 
   def display
     details = retrieve_from_account.reverse
-    puts "date || credit || debit || balance\n"
-    details.each do |trn|
-      puts ("#{trn[:date].strftime("%y/%m %H:%M:%S")}" + " || " + "#{trn[:type] == :credit ? trn[:balance] : " || " }"  + "#{trn[:type] == :credit ? " || " : trn[:balance] }" + " || " + "#{trn[:balance]}")
-    end
+    format_transactions(details)
   end
 
   private
@@ -20,6 +17,17 @@ class Statement
 
   def retrieve_from_account
     @account.retrieve_transactions
+  end
+
+  def format_transactions(details)
+    string = "date || credit || debit || balance\n"
+    details.each do |trn|
+      string << "#{trn[:date].strftime("%y/%m %H:%M:%S")}" + " || "
+      string << "#{trn[:type] == :credit ? trn[:amount] : " || " }"
+      string << "#{trn[:type] == :credit ? " || " : trn[:amount] }" + " || "
+      string << "#{trn[:balance]}\n"
+    end
+    puts string
   end
 
 end
