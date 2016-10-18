@@ -5,7 +5,7 @@ Bank Account Tech Test
 
 
 ```
-#Using the app
+##Using the app
 
 * Fork this repo and run bundle
 * Open up IRB or another REPL and interact with the bank account using the example commands below
@@ -14,7 +14,7 @@ Bank Account Tech Test
 
 **Screenshots**
 
-###User Stories
+##User Stories
 
 ```
 
