@@ -2,13 +2,12 @@ require 'statement'
 
 describe Statement do
   subject(:statement) {described_class.new(account)}
-  let(:now) { Time.now }
-  let(:account) {double :account, retrieve_transactions: [{type: :credit, amount: 100, date: Time.new(2016, 10, 18, 15, 26, 0), balance: 100},{type: :debit, amount: 25, date: Time.new(2016, 10, 18, 15, 26, 0), balance: 75}]}
-
+  INITIAL_DEPOSIT = 100
+  WITHDRAWAL = 25
+  let(:account) {double :account, retrieve_transactions: [{type: :credit, amount: INITIAL_DEPOSIT, date: Time.new(2016, 10, 18, 15, 26, 0), balance: INITIAL_DEPOSIT},{type: :debit, amount: WITHDRAWAL, date: Time.new(2016, 10, 18, 15, 26, 0), balance: INITIAL_DEPOSIT-WITHDRAWAL}]}
 
   describe "#display method" do
     before do
-      Timecop.freeze
       transactions = account.retrieve_transactions
     end
 

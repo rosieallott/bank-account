@@ -5,6 +5,7 @@ describe Atm do
   let(:statement_class) {double :statement_class, new: statement}
   let(:statement) {double :statement, display: nil}
   let(:account) {double :account, retrieve_transactions: nil}
+  DEPOSIT = 100
 
   describe "#view_statement" do
     it "should instantiate Statement class" do
@@ -19,14 +20,14 @@ describe Atm do
 
   describe "#deposit and #withdraw" do
     it "deposit calls store on account with :credit argument" do
-      allow(account).to receive(:store_transaction).with(:credit, 100)
-      expect(account).to receive(:store_transaction).with(:credit, 100)
-      atm.deposit(100)
+      allow(account).to receive(:store_transaction).with(:credit, DEPOSIT)
+      expect(account).to receive(:store_transaction).with(:credit, DEPOSIT)
+      atm.deposit(DEPOSIT)
     end
     it "deposit calls store on account with :debit argument" do
-      allow(account).to receive(:store_transaction).with(:debit, 100)
-      expect(account).to receive(:store_transaction).with(:debit, 100)
-      atm.withdraw(100)
+      allow(account).to receive(:store_transaction).with(:debit, DEPOSIT)
+      expect(account).to receive(:store_transaction).with(:debit, DEPOSIT)
+      atm.withdraw(DEPOSIT)
     end
   end
 end

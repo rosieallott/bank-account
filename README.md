@@ -24,7 +24,7 @@ Bank Account Tech Test
 
 * Fork this repo, clone it down and run bundle
 * Open up IRB (or another REPL) and interact with the app as follows:
-  - Require the master file by typing the command: 'require './lib/atm.rb''
+  - Require the master file by typing the command: 'require "./lib/atm.rb"'
   - Set yourself up an account by calling the command: 'account = Account.new'
   - Get yourself to an ATM (by calling the command: 'atm = Atm.new(account)')
   - You can now:
