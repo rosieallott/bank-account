@@ -9,4 +9,5 @@ describe Statement do
       expect(statement.display).to eq("details")
     end
   end
+
 end

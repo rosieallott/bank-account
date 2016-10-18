@@ -7,7 +7,7 @@ class Statement
   end
 
   def display
-    retrieve_from_account
+    details = retrieve_from_account
   end
 
   private
