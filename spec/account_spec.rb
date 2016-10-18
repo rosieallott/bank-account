@@ -17,14 +17,14 @@ describe Account do
   describe "#store_transaction adds details to the array" do
     before do
       Timecop.freeze
-      account.store_transaction("debit", amount)
+      account.store_transaction(:debit, amount)
     end
 
     it "stores a transaction" do
       expect(account.retrieve_transactions.length).to equal(1)
     end
     it "details argument type stored in hash with key: type" do
-      expect(account.retrieve_transactions.first[:type]).to eq("debit")
+      expect(account.retrieve_transactions.first[:type]).to eq(:debit)
     end
     it "details argument amount stored in hash with key: amount" do
       expect(account.retrieve_transactions.first[:amount]).to eq(amount)
